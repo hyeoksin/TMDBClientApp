@@ -28,10 +28,12 @@ class MovieRepository(
     }
 
     fun getMutableLiveData():MutableLiveData<List<Movie>>{
+
         val callBack = service.getPopularMovies(
             application.applicationContext.getString(R.string.api_key),
             application.applicationContext.getString(R.string.language)
         )
+
         callBack?.enqueue(object : Callback<MovieDBResponse> {
             override fun onFailure(call: Call<MovieDBResponse>, t: Throwable) {}
             override fun onResponse(call: Call<MovieDBResponse>, response: Response<MovieDBResponse>) {
