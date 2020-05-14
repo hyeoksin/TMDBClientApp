@@ -11,6 +11,8 @@ import retrofit2.http.Query
  *@since
  */
 interface MovieAPIService {
+
     @GET("movie/popular")
     fun getPopularMovies(@Query("api_key") api_key:String, @Query("language") language:String):Call<MovieDBResponse>
+
 }
